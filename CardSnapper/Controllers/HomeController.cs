@@ -10,9 +10,36 @@ namespace CardSnapper.Controllers
         // GET: Home
         public ActionResult Index(string id) { 
             if (string.IsNullOrEmpty(id))
-                return View("Error");
+                //Plutot retourner Login non?
+                return View("signin");
             ViewData["nom"] = id;
             return View();
         }
+
+        public ActionResult allCards()
+        {
+            return View("allCards");
+        }
+
+        public ActionResult maCollection()
+        {
+            return View("maCollection");
+        }
+
+        public ActionResult openBooster()
+        {
+            return View("openBooster");
+        }
+
+        public ActionResult signin()
+        {
+            return View("signin");
+        }
+
+        public ActionResult signup()
+        {
+            return View("signup");
+        }
+
     }
 }

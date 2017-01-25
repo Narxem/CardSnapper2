@@ -1,14 +1,13 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "maCollection";
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Ma collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 </head>
 <body>
@@ -26,11 +25,9 @@
         </div>
     </nav>
 
-    <div> 
-        <h2>Hello @ViewData["nom"]</h2>
-        <p>Tu es actuellement sur la page d'accueil de CardSnapper</p>
-        <p>Il reste --INSERER COMPTEUR-- avant de pouvoir ouvrir un nouveau booster</p>
-        <p>Tu as --INSERER NOMBRE CARTES-- cartes dans ta collection</p>
-</div>
+    <div>
+        <h2>Ma collection</h2>
+        <p>Voici toutes les cartes que vous avez découvertes !</p>
+    </div>
 </body>
 </html>
