@@ -8,7 +8,6 @@ namespace CardSnapper.Controllers
 {
     public class CardsController : Controller
     {
-
         public ActionResult AllCards()
         {
             return View();
