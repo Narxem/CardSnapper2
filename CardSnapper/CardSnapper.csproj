@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Models\BddContext.cs" />
     <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\CardDal.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
