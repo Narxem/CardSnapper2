@@ -17,26 +17,35 @@
         <div class="row">
             <form class="col s12" action="signup" method="post">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Placeholder" id="username" type="text" class="validate">
+                    <div class="input-field col s1">
                         <label for="username">Username</label>
                     </div>
+                    <div class="input-field col s3">
+                        <input id="username" type="text" class="validate">
+                    </div>
                 </div>
-              
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s1">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s3">
                         <input id="password" type="password" class="validate">
-                        <label for="password">Mot de passe</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input id="confirm-password" type="password" class="validate">
-                        <label for="confirm-password">Confirmer le mot de passe</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input id="mail" type="email" class="validate">
+                    <div class="input-field col s1">
+                        <label for="confirm-password">Confirm Password</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="confirm-password" type="password" class="validate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s1">
                         <label for="mail">Email</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="mail" type="email" class="validate">
                     </div>
                 </div>
                 <input type="submit" name="Valider" />

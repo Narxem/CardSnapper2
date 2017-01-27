@@ -33,7 +33,7 @@ namespace CardSnapper.Controllers {
             if (user == null) {
                 return Redirect("/Sign/signin");
             } else {
-                //Session["user"] = user;
+                Session["user"] = user;
                 return Redirect("/");
             }
         }
@@ -41,7 +41,7 @@ namespace CardSnapper.Controllers {
         [HttpGet]
         public ActionResult logout() {
             Session["user"] = null;
-            Redirect("/");
+            return Redirect("/");
         }
 
         [HttpPost]

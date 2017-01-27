@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CardSnapper.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,10 @@ namespace CardSnapper.Controllers
     public class HomeController : Controller {
         // GET: Home
         public ActionResult Index() { 
-            ViewData["nom"] = "Anonyme";
+            if (Session["user"] == null)
+                return View("default");
+            User user = (User) Session["user"];
+            ViewData["name"] = user.username;
             return View();
         }
 
