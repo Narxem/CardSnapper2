@@ -135,31 +135,37 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaCollectionController.cs" />
     <Compile Include="Controllers\SignController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BDDContext.cs" />
+    <Compile Include="Models\BddContext.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Sign\Signin.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Sign\Signup.cshtml" />
     <Content Include="Views\Cards\AllCards.cshtml" />
     <Content Include="Views\Cards\OpenBooster.cshtml" />
-    <Content Include="Views\Cards\MaCollection.cshtml" />
+    <Content Include="Views\MaCollection\Index.cshtml" />
+    <Content Include="Views\Sign\Signin.cshtml" />
+    <Content Include="Views\Sign\Signup.cshtml" />
+    <Content Include="Views\SignController\Signin.cshtml" />
+    <Content Include="Views\SignController\Signup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -169,7 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Signup\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,11 +8,8 @@ namespace CardSnapper.Controllers
 {
     public class HomeController : Controller {
         // GET: Home
-        public ActionResult Index(string id) { 
-            if (string.IsNullOrEmpty(id))
-                //Plutot retourner Login non?
-                return View("signin");
-            ViewData["nom"] = id;
+        public ActionResult Index() { 
+            ViewData["nom"] = "Anonyme";
             return View();
         }
 
