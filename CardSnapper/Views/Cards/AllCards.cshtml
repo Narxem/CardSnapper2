@@ -1,4 +1,10 @@
 ﻿<div>
     <h2>Toutes les cartes</h2>
     <p>Voici toutes les cartes que vous pouvez débloquer !</p>
+
+   @{List<String> liste = @ViewData["image"]
+
+   @foreach (var item in liste) {
+      <img src="@item" />
+   }
 </div>
