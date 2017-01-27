@@ -4,8 +4,7 @@ using System.Linq;
 
 namespace CardSnapper.Models
 {
-    public class UserDal
-    {
+    public class UserDal {
         private BddContext db = new BddContext();
 
         public User authenticate(string username, string password) {

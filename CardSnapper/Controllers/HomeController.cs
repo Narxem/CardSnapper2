@@ -5,10 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CardSnapper.Controllers
-{
+namespace CardSnapper.Controllers {
     public class HomeController : Controller {
-        // GET: Home
+
+
         public ActionResult Index() { 
             if (Session["user"] == null)
                 return View("default");
