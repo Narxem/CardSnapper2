@@ -14,10 +14,12 @@ namespace CardSnapper.Models {
 
         public List<String> getAllStringCards() {
             List<Card> liste = getAllCards();
-            List<String> listeTitre = null;
-            foreach(Card carte in liste) {
+            List<String> listeTitre = new List<String>();
+            foreach(Card carte in liste) {              
                 String image = carte.imageURL;
-                listeTitre.Add(image);
+                if(image != null) { 
+                    listeTitre.Add(image);
+                }
             }
             return listeTitre;
         }

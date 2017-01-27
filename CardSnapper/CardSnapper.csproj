@@ -179,7 +179,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BddContext.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardDal.cs" />
