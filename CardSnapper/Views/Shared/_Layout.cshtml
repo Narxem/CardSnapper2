@@ -15,12 +15,12 @@
             <a href="/" class="brand-logo">CardSnapper</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 @if (HttpContext.Current.Session["User"] == null) {
-                    <li><a href="/Cards/allCards">Toutes les cartes</a></li>
+                    <li><a href="/Cards/AllCards">Toutes les cartes</a></li>
                     <li><a href="/Sign/signup">S'inscrire</a></li>
                     <li><a href="/Sign/signin">Se connecter</a></li>
                 }
                 else {
-                    <li><a href="/Cards/openBooster">Ouvrir un booster</a></li>
+                    <li><a href="/Cards/OpenBooster">Ouvrir un booster</a></li>
                     <li><a href="/MaCollection/Index">Ma collection</a></li>
                     <li><a href="/Cards/allCards">Toutes les cartes</a></li>
                     <li><a href="/Sign/logout">Se déconnecter</a></li>
