@@ -12,6 +12,6 @@ namespace CardSnapper.Models {
         public string password { get; set; }
         public string mail { get; set; }
 
-
+        public virtual ICollection<Card> collection { get; set; }
     }
 }

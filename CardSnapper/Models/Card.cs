@@ -10,5 +10,8 @@ namespace CardSnapper.Models {
         public string name { get; set; }
         public int rarity { get; set; }
         public string imageURL { get; set; }
+
+
+        public virtual ICollection<User> users { get; set; }
     }
 }
