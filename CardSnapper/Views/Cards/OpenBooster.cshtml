@@ -15,8 +15,15 @@
     <div>
         <h2>Ouvrir un booster</h2>
         <div>
-            <p>Cliquez sur le bouton pour réduire le temps avant le prochain booster</p>
-            <a class="waves-effect waves-light btn">CLIQUE ICI</a>
+            <p>Cliquez sur le bouton pour ouvrir un autre booster</p>
+            @if (ViewData["image"] != null) {
+                <img src="@ViewData["image"]" />                
+            }
+        </div>
+            <div>
+            <form action="OpenBooster">
+                <input type="submit" name="Ouvrir un autre Booster" value="Ouvrir un autre Booster" />
+            </form>
         </div>
     </div>
 </body>

@@ -23,6 +23,11 @@ namespace CardSnapper.Controllers
         }
 
         public ActionResult OpenBooster() {
+            Card card = cardDal.getRandomCard();
+            User user = (User)Session["user"];
+           // db.user.collection.Add(card);
+           // db.SaveChanges();
+            ViewData["image"] = card.imageURL;
             return View();
         }
 

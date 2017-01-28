@@ -2,4 +2,12 @@
 <div>
     <h2>Ma collection</h2>
     <p>Voici toutes les cartes que vous avez découvertes !</p>
+
+    @if (ViewData["image"] != null) {
+        List<String> infoList = (List<String>)ViewData["image"];
+        foreach (var i in infoList) {
+            <img src="@i" />
+        }
+    }
+
 </div>
