@@ -5,8 +5,13 @@ using System.Web;
 
 namespace CardSnapper.Models {
     public class CardDal {
-        private BddContext db = new BddContext();
+
+        private BddContext db;
         private Random rand = new Random();
+
+        public CardDal(BddContext context) {
+            db = context;
+        }
 
         public List<Card> getAllCards() {
             return db.cards.ToList();

@@ -12,25 +12,34 @@ namespace CardSnapper.Controllers
 {
     public class CardsController : Controller
     {
-        private CardDal cardDal = new CardDal();
         private BddContext db = new BddContext();
+        
 
         public ActionResult AllCards()
         {
+            CardDal cardDal = new CardDal(db);
             List <String> cards = cardDal.getAllStringCards();
             ViewData["image"] = cards;
             return View();
         }
 
         public ActionResult OpenBooster() {
+            CardDal cardDal = new CardDal(db);
+            UserDal userDal = new UserDal(db);
             Card card = cardDal.getRandomCard();
             User user = (User)Session["user"];
-           // db.user.collection.Add(card);
-           // db.SaveChanges();
+            User userDb = userDal.ObtenirUtilisateur(user.id);
+            user.collection.Add(card);
+
+            userDb.collection.Add(card);
+            card.users.Add(userDb);
+
+            db.Entry(userDb).State = EntityState.Modified;
+            db.Entry(card).State = EntityState.Modified;
+            db.SaveChanges();
             ViewData["image"] = card.imageURL;
             return View();
         }
-
 
         // GET: Carte
         public ActionResult Index() {

@@ -9,10 +9,11 @@ namespace CardSnapper.Controllers
 {
     public class MaCollectionController : Controller
     {
-        private CardDal cardDal = new CardDal();
+        private BddContext db = new BddContext();
         // GET: MaCollection
         public ActionResult Index()
         {
+            CardDal cardDal = new CardDal(db);
             User user = (User)Session["user"];
             List<String> liste = cardDal.getUserCardString(user);
             ViewData["image"] = liste;

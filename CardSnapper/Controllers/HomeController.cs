@@ -1,50 +1,44 @@
 ﻿using CardSnapper.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CardSnapper.Controllers {
     public class HomeController : Controller {
 
-        private CardDal cardDal = new CardDal();
+        private BddContext db = new BddContext();
 
-        public ActionResult Index() { 
+        public ActionResult Index() {
             if (Session["user"] == null)
                 return View("default");
-            User user = (User) Session["user"];
+            User user = (User)Session["user"];
             ViewData["name"] = user.username;
             // Total carte dans la bdd
+            CardDal cardDal = new CardDal(db);
             List<String> cards = cardDal.getAllStringCards();
             ViewData["nombreCartes"] = cards.Count;
-            //Envoyer nombre carte de l'utilisateur            
+            //Envoyer nombre carte de l'utilisateur 
             ViewData["nombreCartesUser"] = user.collection.Count;
             return View();
         }
 
-        public ActionResult allCards()
-        {
+        public ActionResult allCards() {
             return View("allCards");
         }
 
-        public ActionResult maCollection()
-        {
+        public ActionResult maCollection() {
             return View("maCollection");
         }
 
-        public ActionResult openBooster()
-        {
+        public ActionResult openBooster() {
             return View("openBooster");
         }
 
-        public ActionResult signin()
-        {
+        public ActionResult signin() {
             return View("signin");
         }
 
-        public ActionResult signup()
-        {
+        public ActionResult signup() {
             return View("signup");
         }
 

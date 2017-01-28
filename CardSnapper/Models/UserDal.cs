@@ -5,7 +5,11 @@ using System.Linq;
 namespace CardSnapper.Models
 {
     public class UserDal {
-        private BddContext db = new BddContext();
+        private BddContext db;
+
+        public UserDal(BddContext context) {
+            db = context;
+        }
 
         public User authenticate(string username, string password) {
             try {

@@ -8,13 +8,8 @@ using CardSnapper.Models;
 namespace CardSnapper.Controllers {
     public class SignController : Controller {
 
-        private UserDal dal;
+        private BddContext db = new BddContext();
 
-        public SignController() : this(new UserDal()) { }
-
-        private SignController(UserDal dalIoc) {
-            dal = dalIoc;
-        }
 
         [HttpGet]
         public ActionResult Signin() {
@@ -29,6 +24,7 @@ namespace CardSnapper.Controllers {
 
         [HttpPost]
         public ActionResult auth() {
+            UserDal dal = new UserDal(db);
             User user = dal.authenticate(Request.Form["username"], Request.Form["password"]);
             if (user == null) {
                 return Redirect("/Sign/signin");
@@ -46,6 +42,7 @@ namespace CardSnapper.Controllers {
 
         [HttpPost]
         public ActionResult signup() {
+            UserDal dal = new UserDal(db);
             dal.AjouterUtilisateur(Request.Form["username"], Request.Form["password"], Request.Form["mail"]);
                 return View("signin");
             }
