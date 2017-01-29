@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using CardSnapper.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,7 +20,14 @@
                     <li><a href="/Sign/signup">S'inscrire</a></li>
                     <li><a href="/Sign/signin">Se connecter</a></li>
                 }
+                else if (!((User) HttpContext.Current.Session["User"]).isAdmin) {
+                    <li><a href="/Cards/OpenBooster">Ouvrir un booster</a></li>
+                    <li><a href="/MaCollection/Index">Ma collection</a></li>
+                    <li><a href="/Cards/allCards">Toutes les cartes</a></li>
+                    <li><a href="/Sign/logout">Se déconnecter</a></li>
+                }
                 else {
+                    <li><a href="/Cards/Create">Ajouter une carte</a></li>
                     <li><a href="/Cards/OpenBooster">Ouvrir un booster</a></li>
                     <li><a href="/MaCollection/Index">Ma collection</a></li>
                     <li><a href="/Cards/allCards">Toutes les cartes</a></li>
