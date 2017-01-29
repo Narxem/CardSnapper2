@@ -24,6 +24,12 @@ namespace CardSnapper.Controllers
         }
 
         public ActionResult OpenBooster() {
+            
+            return View();
+        }
+
+        public ActionResult ouvrirBooster() {
+
             CardDal cardDal = new CardDal(db);
             UserDal userDal = new UserDal(db);
             Card card = cardDal.getRandomCard();
@@ -38,9 +44,9 @@ namespace CardSnapper.Controllers
             db.Entry(card).State = EntityState.Modified;
             db.SaveChanges();
             ViewData["image"] = card.imageURL;
-            return View();
-        }
+            return View("OpenBooster");
 
+        }
         // GET: Carte
         public ActionResult Index() {
             return View(db.cards.ToList());
@@ -49,69 +55,68 @@ namespace CardSnapper.Controllers
         // GET: Carte/Details/5
         public ActionResult Details(int? id) {
             if (id == null) {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Card card = db.cards.Find(id);
             if (card == null) {
-                    return HttpNotFound();
-                }
+                return HttpNotFound();
+            }
             return View(card);
         }
 
         // GET: Carte/Create
         public ActionResult Create() {
-                        return View();
-                    }
+            return View();
+        }
         // POST: Carte/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,name,rarity,imageURL")] Card card) {
-                        if (ModelState.IsValid) {
+            if (ModelState.IsValid) {
                 db.cards.Add(card);
                 db.SaveChanges();
-                                return RedirectToAction("Index");
-                            }
-            
-                        return View(card);
-                    }
+                return RedirectToAction("Index");
+            }
+            return View(card);
+        }
         // GET: Carte/Edit/5
         public ActionResult Edit(int? id) {
-                        if (id == null) {
-                                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                            }
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Card card = db.cards.Find(id);
-                        if (card == null) {
-                                return HttpNotFound();
-                            }
-                        return View(card);
-                    }
+            if (card == null) {
+                return HttpNotFound();
+            }
+               return View(card);
+        }
         // POST: Carte/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,name,rarity,imageURL")] Card card) {
-                        if (ModelState.IsValid) {
+            if (ModelState.IsValid) {
                 db.Entry(card).State = EntityState.Modified;
                 db.SaveChanges();
-                                return RedirectToAction("Index");
-                            }
-                        return View(card);
-                    }
+                return RedirectToAction("Index");
+            }
+            return View(card);
+        }
 
         // GET: Carte/Delete/5
         public ActionResult Delete(int? id) {
-                        if (id == null) {
-                                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                            }
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Card card = db.cards.Find(id);
-                        if (card == null) {
-                                return HttpNotFound();
-                            }
-                        return View(card);
-                    }
+                if (card == null) {
+                    return HttpNotFound();
+                }
+                return View(card);
+        }
         // POST: Carte/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -119,14 +124,14 @@ namespace CardSnapper.Controllers
             Card card = db.cards.Find(id);
             db.cards.Remove(card);
             db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing) {
-                        if (disposing) {
+            if (disposing) {
                 db.Dispose();
-                            }
+            }
             base.Dispose(disposing);
-                    }
+        }
     }
 }
